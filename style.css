@@ -1,0 +1,95 @@
+:root {
+  /* nav bar */
+  --navbar--base-color: #f0f0f0;
+  --navbar-background-color: #303f9f;
+  --navbar-base-padding: 8px 8px;
+  --navbar-base-margin: 2vw;
+  /* logo img */
+  --logo--color: #b71c1c;
+}
+body {
+  margin: 0;
+}
+
+.navbar {
+  background-color: var(--navbar-background-color);
+  color: var(--navbar--base-color);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--navbar-base-padding);
+}
+
+.logo__img {
+  color: var(--logo--color);
+}
+.logo__text {
+  text-decoration: none;
+  color: var(--navbar--base-color);
+  font-size: 24px;
+}
+
+.menus {
+  display: flex;
+  list-style: none;
+}
+
+.menu {
+  padding: var(--navbar-base-padding);
+  /* margin-right: var(--navbar-base-margin); */
+  text-decoration: none;
+  color: var(--navbar--base-color);
+}
+.menu:hover {
+  background-color: #f05545;
+  border-radius: 4px;
+}
+.community {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 0; /*리스트 쓸 때는 패딩 레프트 꼮!!!*/
+}
+.community li {
+  padding: var(--navbar-base-padding);
+}
+
+.navbar__toggle {
+  color: var(--navbar--base-color);
+  position: absolute;
+  font-size: 24px;
+  right: 4.5vw;
+  display: none;
+}
+
+/* 768px 이상이면 디스플레이 none 같은데 아니네? */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar__toggle {
+    display: block;
+  }
+
+  .menus {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  .menu {
+    margin-right: 0;
+    margin-top: var(--navbar-base-margin);
+  }
+
+  .community {
+    display: none;
+    justify-content: center;
+    margin-top: var(--navbar-base-margin);
+    margin-left: 0;
+  }
+
+  .menus.active,
+  .community.active {
+    display: flex;
+  }
+}
